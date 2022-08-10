@@ -7,11 +7,14 @@ import {SafeAreaProvider} from 'react-native-safe-area-context'
 const App = () => {
   return (
     <SafeAreaProvider>
-      <ToastProvider animationType="zoom-in" placement="bottom" duration={3000}>
-        <Provider store={store}>
+      <Provider store={store}>
+        <ToastProvider
+          animationType="zoom-in"
+          placement="bottom"
+          duration={3000}>
           <Main />
-        </Provider>
-      </ToastProvider>
+        </ToastProvider>
+      </Provider>
     </SafeAreaProvider>
   )
 }

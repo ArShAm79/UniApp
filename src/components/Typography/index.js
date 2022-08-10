@@ -11,7 +11,7 @@ export default function Typography({
 }) {
   const styles = useStyle()
   return (
-    <Text style={[styles[variant], style, color ? {color: color} : {}]}>
+    <Text style={[styles[variant], style, color ? {color: color} : {}]} testID="typography-test">
       {children}
     </Text>
   )

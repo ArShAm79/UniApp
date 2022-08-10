@@ -23,6 +23,7 @@ export default function SimpleHeader({
   const {theme: palette} = useSelector((state) => state.authReducer)
   return (
     <View
+        testID="header-test"
       style={[
         styles.container,
         backgroundColor ? {backgroundColor: backgroundColor} : {},
@@ -30,7 +31,7 @@ export default function SimpleHeader({
       ]}>
       <View style={styles.headerLeft}>
         <Pressable
-          onPress={() => navigation.goBack()}
+          // onPress={() => navigation.goBack()}
           style={styles.goBackButton}>
           <CustomIcon
             name={isCloseIcon ? 'close_24px' : 'arrow_back_24px'}

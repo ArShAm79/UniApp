@@ -1,20 +1,21 @@
 import React, {useEffect, useState} from 'react'
 import {Platform, Image, View} from 'react-native'
-import RNFS from 'react-native-fs'
-import Icon from 'react-native-vector-icons/Feather'
+// import RNFS from 'react-native-fs'
+// import Icon from 'react-native-vector-icons/Feather'
 import {useSelector} from 'react-redux'
+import CustomIcon from "./CustomIcon";
 
 export default function CustomImage({avatarId, style}) {
   const [imageAddress, setImageAddress] = useState(null)
   useEffect(() => {
     downloadPhoto(avatarId).then((imagePath) => {
-      setImageAddress(imagePath)
+      setImageAddress("")
     })
   }, [avatarId])
   const {theme: palette} = useSelector((state) => state.authReducer)
 
   return (
-    <>
+    <View testID="image-test" style={style}>
       {!imageAddress && (
         <View
           style={{
@@ -25,15 +26,15 @@ export default function CustomImage({avatarId, style}) {
             justifyContent: 'center',
             alignItems: 'center'
           }}>
-          <Icon
-            name={'camera-off'}
+          <CustomIcon
+            name={'icons8_search_1-1'}
             size={50}
             color={palette.M_3_READ_ONLY_WHITE}
           />
         </View>
       )}
       {imageAddress && <Image style={style} source={{uri: imageAddress}} />}
-    </>
+    </View>
   )
 }
 
