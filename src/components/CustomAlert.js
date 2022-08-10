@@ -5,18 +5,6 @@ import CustomIcon from './CustomIcon'
 import Typography from './Typography'
 import CustomButton from './CustomButton'
 
-// buttons prop schema(it's an array):
-// const initialButtons = [
-//   {
-//     title: ,
-//     color: ,
-//     bgColor: ,
-//     onPress: () => {})
-//     borderColor: ,
-//     borderWidth: ,
-//   },
-// ]
-
 function CustomAlert({
   icon,
   iconSize,
@@ -33,7 +21,7 @@ function CustomAlert({
   buttons
 }) {
   return (
-    <View style={[styles.alertContainer, {backgroundColor: bgColor}]}>
+    <View style={[styles.alertContainer, {backgroundColor: bgColor}]} testID="custom-alert-test">
       {(icon || image) && (
         <View style={styles.alertIcon}>
           {icon && <CustomIcon name={icon} size={iconSize} color={iconColor} />}

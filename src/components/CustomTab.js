@@ -24,7 +24,7 @@ export default function CustomTab({
                 {tabs.map((tab, index) => (
                     <Pressable
                         key={index}
-                        onPress={() => onChangeActiveTab(index)}
+                        // onPress={() => onChangeActiveTab(index)}
                         style={[
                             styles.tab,
                             index === activeTab ? styles.activeTab : null,

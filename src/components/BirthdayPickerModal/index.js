@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {View,I18nManager} from 'react-native'
-import Modal from 'react-native-modal'
 
 import {
   getCurrentYear,
@@ -26,7 +25,7 @@ export default function Index({type, open, close, onOkPress}) {
   }, [selectedMonth, selectedYear, setDaysList, type])
   const styles = useStyles()
   return (
-    <Modal isVisible={open}>
+    <View isVisible={open}>
       <View style={styles.container}>
         <View style={styles.datePickerContainer}>
           <View style={styles.pickerContainer}>
@@ -91,7 +90,7 @@ export default function Index({type, open, close, onOkPress}) {
           </View>
         </View>
       </View>
-    </Modal>
+    </View>
   )
 }
 

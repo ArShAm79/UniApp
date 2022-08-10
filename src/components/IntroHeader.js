@@ -1,24 +1,26 @@
 import {useNavigation} from '@react-navigation/native'
 import React from 'react'
-import {useTranslation} from 'react-i18next'
-import {View, StyleSheet, Pressable, I18nManager} from 'react-native'
+
+import {View, StyleSheet, Pressable} from 'react-native'
 
 import CustomIcon from './CustomIcon'
 import Typography from './Typography'
 import makeStyles from "../helpers/makeStyles";
+import {useSelector} from "react-redux";
 
 export default function IntroHeader({title}) {
   const navigation = useNavigation()
-  const {t} = useTranslation()
+  const {theme: palette} = useSelector((state) => state.authReducer)
+
   const styles = useStyles()
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="intro-header-test">
       <View style={styles.headerLeft}>
         <Pressable
-          onPress={() => navigation.goBack()}
+          // onPress={() => navigation.goBack()}
           style={styles.goBackButton}>
           <CustomIcon
-            name="Arrow---Left-2"
+            name="icons8_teacher-1-course"
             size={32}
             color={palette.balticSea}
           />
@@ -26,7 +28,7 @@ export default function IntroHeader({title}) {
       </View>
       <View style={styles.headerCenter}>
         <Typography variant="h4" style={styles.title}>
-          {t(title)}
+          {(title)}
         </Typography>
       </View>
       <View style={styles.headerRight} />
@@ -36,11 +38,11 @@ export default function IntroHeader({title}) {
 
 const useStyles = makeStyles((palette) => ({
   container: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection:  'row',
     alignItems: 'center',
     paddingTop: 25,
     // paddingBottom: 25,
-    backgroundColor: palette.secondary.background
+    backgroundColor: palette.secondary
   },
   headerLeft: {
     width: 54,
